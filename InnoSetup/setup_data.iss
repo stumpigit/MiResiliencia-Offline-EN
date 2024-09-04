@@ -31,26 +31,14 @@ WizardStyle=modern
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
-[Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\GUI\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion  recursesubdirs createallsubdirs
-Source: "..\GUI\bin\Release\ResTBDesktop.exe.config"; DestDir: "{app}"; Flags: ignoreversion  recursesubdirs createallsubdirs; AfterInstall: ChangeAppSettings();
 Source: "..\PostgreSQLPortable_10.4.1\*"; DestDir: "{code:GetAppData}\ResTBDesktop\"; Flags: ignoreversion recursesubdirs createallsubdirs onlyifdoesntexist
-Source: "C:\dev\MapWinGIS\*"; DestDir: "{app}\MapWinGIS"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "C:\dev\MapWinGIS\MapWinGIS.ocx"; DestDir: "{app}\MapWinGIS"; Flags: restartreplace
 Source: "..\PrintTemplates\*.pdf"; DestDir: "{code:GetAppData}\ResTBDesktop\PrintTemplates\";  Flags: recursesubdirs createallsubdirs   
 Source: "..\Kernel\Scripts\*.min.js"; DestDir: "{code:GetAppData}\ResTBDesktop\Script\";  Flags: recursesubdirs createallsubdirs
 Source: "..\Kernel\Content\*.min.css"; DestDir: "{code:GetAppData}\ResTBDesktop\Script\";  Flags: recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
-[Icons]
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
-
-[Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
 [Code]
 

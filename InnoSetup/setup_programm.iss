@@ -21,7 +21,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
-PrivilegesRequired=lowest
+;PrivilegesRequired=lowest
 OutputDir=..\InnoSetup\Output
 OutputBaseFilename=setup_offline
 Compression=lzma
@@ -37,12 +37,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "..\GUI\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion  recursesubdirs createallsubdirs
 Source: "..\GUI\bin\Release\ResTBDesktop.exe.config"; DestDir: "{app}"; Flags: ignoreversion  recursesubdirs createallsubdirs; AfterInstall: ChangeAppSettings();
-Source: "..\PostgreSQLPortable_10.4.1\*"; DestDir: "{code:GetAppData}\ResTBDesktop\"; Flags: ignoreversion recursesubdirs createallsubdirs onlyifdoesntexist
 Source: "C:\dev\MapWinGIS\*"; DestDir: "{app}\MapWinGIS"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "C:\dev\MapWinGIS\MapWinGIS.ocx"; DestDir: "{app}\MapWinGIS"; Flags: restartreplace
-Source: "..\PrintTemplates\*.pdf"; DestDir: "{code:GetAppData}\ResTBDesktop\PrintTemplates\";  Flags: recursesubdirs createallsubdirs   
-Source: "..\Kernel\Scripts\*.min.js"; DestDir: "{code:GetAppData}\ResTBDesktop\Script\";  Flags: recursesubdirs createallsubdirs
-Source: "..\Kernel\Content\*.min.css"; DestDir: "{code:GetAppData}\ResTBDesktop\Script\";  Flags: recursesubdirs createallsubdirs
+Source: "C:\dev\MapWinGIS\MapWinGIS.ocx"; DestDir: "{app}\MapWinGIS"; Flags: restartreplace sharedfile regserver
+
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
