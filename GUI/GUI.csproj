@@ -35,6 +35,7 @@
     <ApplicationVersion>1.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -190,7 +191,7 @@
     <Compile Include="Model\HazardIndex.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="View\MainWindow.xaml.cs">
+    <Compile Include="view\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MySplashScreen.xaml.cs">
@@ -199,7 +200,7 @@
     <Compile Include="View\OpenProjectWindow.xaml.cs">
       <DependentUpon>OpenProjectWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\NewProjectWindow.xaml.cs">
+    <Compile Include="view\NewProjectWindow.xaml.cs">
       <DependentUpon>NewProjectWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Design\Icons.xaml">
@@ -224,11 +225,11 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="View\OpenProjectWindow.xaml">
+    <Page Include="view\OpenProjectWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\NewProjectWindow.xaml">
+    <Page Include="view\NewProjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -293,7 +294,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="VCREDIST\VC_redist.x86.exe" />
-    <Resource Include="View\SplashScreen.png" />
+    <Resource Include="view\SplashScreen.png" />
     <Resource Include="FodyWeavers.xml">
       <SubType>Designer</SubType>
     </Resource>
@@ -303,7 +304,7 @@
     <None Include="Helpers\Geocode\CH.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Resource Include="View\SplashScreen_Pflanze.png" />
+    <Resource Include="view\SplashScreen_Pflanze.png" />
     <Content Include="MapWinGIS\AxInterop.MapWinGIS.dll" />
     <Content Include="MapWinGIS\Interop.MapWinGIS.dll" />
   </ItemGroup>

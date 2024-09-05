@@ -7,8 +7,8 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MiResiliencia Desktop - Mining")]
-[assembly: AssemblyDescription("MiResiliencia Desktop - Mining")]
+[assembly: AssemblyTitle("MiResiliencia Desktop")]
+[assembly: AssemblyDescription("MiResiliencia Desktop")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("GEOTEST AG / Christoph Suter")]
 [assembly: AssemblyProduct("")]

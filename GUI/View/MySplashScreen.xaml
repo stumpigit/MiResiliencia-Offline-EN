@@ -18,8 +18,10 @@
     <UserControl.Resources>
         <!--<BitmapImage x:Key="SplashScreen" UriSource="pack://application:,,,/Design/SplashScreen.png" />-->
         <BitmapImage x:Key="SplashScreen" UriSource="SplashScreen2.jpg" />
+
     </UserControl.Resources>
     <UserControl.Background>
+
         <ImageBrush ImageSource="{StaticResource SplashScreen}"/>
     </UserControl.Background>
     <Grid Margin="30" >
