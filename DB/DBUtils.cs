@@ -17,6 +17,9 @@ namespace ResTB.DB
         static extern bool PostMessage(IntPtr hWnd, [MarshalAs(UnmanagedType.U4)] uint Msg, IntPtr wParam, IntPtr lParam);
         [DllImport("user32.dll", SetLastError = true)]
         static extern bool PostMessage(IntPtr hWnd, [MarshalAs(UnmanagedType.U4)] uint Msg, int wParam, int lParam);
+
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+        static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childAfter, string lclassName, string windowTitle);
         const int WM_KEYDOWN = 0x0100;
         const int WM_KEYUP = 0x0101;
         const int WM_CHAR = 0x0102;
@@ -94,6 +97,12 @@ namespace ResTB.DB
                     conn.Close();
 
                     hWnd = WndSearcher.SearchForWindow("ConsoleWindowClass","PostgreSQL Portable");
+                    if (hWnd.ToInt32()==0)
+                    {
+                        //Win 11 changed it to CASCADIA_HOSTING_WINDOW_CLASS
+                        hWnd = WndSearcher.SearchForWindow("CASCADIA_HOSTING_WINDOW_CLASS", "PostgreSQL Portable");
+                    }
+
                     ShowWindow(hWnd, 0);
                 }
                 catch (Exception ex)
@@ -110,6 +119,17 @@ namespace ResTB.DB
         {
             if (_process == null) return;
 
+            hWnd = WndSearcher.SearchForWindow("ConsoleWindowClass", "PostgreSQL Portable");
+            if (hWnd.ToInt32() == 0)
+            {
+                //Win 11 changed it to CASCADIA_HOSTING_WINDOW_CLASS
+                hWnd = WndSearcher.SearchForWindow("CASCADIA_HOSTING_WINDOW_CLASS", "PostgreSQL Portable");
+
+                hWnd = FindWindowEx(hWnd, IntPtr.Zero, "Windows.UI.Composition.DesktopWindowContentBridge", null);
+                hWnd = FindWindowEx(hWnd, IntPtr.Zero, "Windows.UI.Input.InputSite.WindowClass", null);
+            }
+
+            ShowWindow(hWnd, 1);
             uint wparam = 0 << 29 | 0;
             string msg = @"\q";
             int i = 0;

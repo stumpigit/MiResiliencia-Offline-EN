@@ -576,6 +576,8 @@ namespace ResTB.Map.Tools
                 }
                 e.rasterLayer.Handle = layerHandle;
                 MapControlTools.Layers.Add(e.rasterLayer);
+                MapControlTools.LayerHandlingTool.SetLayerPosition(e.rasterLayer.Name, LayerMoveType.BOTTOM);
+
                 Events.MapControl_LayerChange layerchange = new Events.MapControl_LayerChange() { LayerChangeReason = Events.LayerChangeReason.AddLayer, Layer = e.rasterLayer };
                 On_LayerChange(layerchange);
 

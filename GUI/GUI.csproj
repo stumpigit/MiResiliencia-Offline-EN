@@ -20,6 +20,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -31,7 +32,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
@@ -193,14 +194,14 @@
     <Compile Include="view\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\OpenProjectWindow.xaml.cs">
+    <Compile Include="View\MySplashScreen.xaml.cs">
+      <DependentUpon>MySplashScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OpenProjectWindow.xaml.cs">
       <DependentUpon>OpenProjectWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\NewProjectWindow.xaml.cs">
       <DependentUpon>NewProjectWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\mysplashscreen.xaml.cs">
-      <DependentUpon>mysplashscreen.xaml</DependentUpon>
     </Compile>
     <Page Include="Design\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -216,7 +217,11 @@
     </Compile>
     <Compile Include="Helpers\Messages\MapMessage.cs" />
     <Compile Include="Helpers\Messages\MessageBoxMessage.cs" />
-    <Page Include="view\MainWindow.xaml">
+    <Page Include="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="View\MySplashScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
@@ -225,10 +230,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="view\NewProjectWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="view\mysplashscreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -288,7 +289,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="VCREDIST\REGKEY_VC_REDIST.txt" />
-    <Resource Include="view\SplashScreen2.jpg" />
+    <Resource Include="View\SplashScreen2.jpg" />
     <None Include="Helpers\Geocode\cities500.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -310,7 +311,7 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 und x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
