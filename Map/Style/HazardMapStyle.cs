@@ -31,21 +31,37 @@ namespace ResTB.Map.Style
             options.LineStipple = tkDashStyle.dsSolid;
 
 
+            // Flooding: 1,2,4: Yellow; 3,5,6: Blue; >7: Red; 
+            // Others: 1 = Yellow; 2-4: Blue; 6-9: Red
+
             ShapefileCategory ct = sf.Categories.Add("Danger");
-            ct.Expression = "[Index] >= 7";
+            ct.Expression = "[Index] >= 6";
             ct.DrawingOptions.FillColor = utils.ColorByName(tkMapColor.Red);
 
-
             ct = sf.Categories.Add("Medium");
-            ct.Expression = "[Index] < 7";
+            ct.Expression = "[Index] <= 5";
             ct.DrawingOptions.FillColor = utils.ColorByName(tkMapColor.Blue);
 
             ct = sf.Categories.Add("Medium");
-            ct.Expression = "[Index] = 4";
+            ct.Expression = "[Index] = 1";
             ct.DrawingOptions.FillColor = utils.ColorByName(tkMapColor.Yellow);
 
-            ct = sf.Categories.Add("Low");
-            ct.Expression = "[Index] < 3";
+            // Flooding
+
+            ct = sf.Categories.Add("Danger Flooding");
+            ct.Expression = "[Index] >= 7 AND [NatHazard_ID] = 3";
+            ct.DrawingOptions.FillColor = utils.ColorByName(tkMapColor.Red);
+
+            ct = sf.Categories.Add("Medium Flooding");
+            ct.Expression = "[Index] < 7 AND [NatHazard_ID] = 3";
+            ct.DrawingOptions.FillColor = utils.ColorByName(tkMapColor.Blue);
+
+            ct = sf.Categories.Add("Medium Flooding");
+            ct.Expression = "[Index] = 4 AND [NatHazard_ID] = 3";
+            ct.DrawingOptions.FillColor = utils.ColorByName(tkMapColor.Yellow);
+
+            ct = sf.Categories.Add("Low Flooding");
+            ct.Expression = "[Index] < 3 AND [NatHazard_ID] = 3";
             ct.DrawingOptions.FillColor = utils.ColorByName(tkMapColor.Yellow);
 
             sf.Categories.ApplyExpressions();
